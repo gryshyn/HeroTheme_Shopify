@@ -1,0 +1,12 @@
+{% paginate collections by 1%}
+<h1>Collections</h1>
+
+{% for collection in collections %}
+    <a href="{{ collection.url }}">
+        <h2>{{ collection.title }}</h2>
+        <p> Products: {{ collection.all_products_count }}</p>
+        <img src="{{ collection.featured_image | image_url: width:400 }}" width="400" height="400"/>
+    </a>
+{% endfor %}    
+{{ paginate | default_pagination }}
+{% endpaginate %}
